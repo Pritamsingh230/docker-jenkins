@@ -2,7 +2,7 @@ const Koa = require('koa');
 const Router = require('@koa/router');
 const app = new Koa();
 const router = new Router();
-const port = parseInt(process.env.PORT) || 3002;
+const port = parseInt(process.env.PORT) || 3000;
 
 router.get('/', async (ctx) => {
   ctx.body = {user: "ta6ish"}
