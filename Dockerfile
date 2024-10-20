@@ -1,10 +1,7 @@
-FROM node:10.17.0 AS dep
-COPY . /app
+FROM node:16
 WORKDIR /app
-RUN npm install --production
-
-FROM gcr.io/distroless/nodejs
-COPY --from=dep /app /app
-WORKDIR /app
-EXPOSE 3000
-CMD ["index.js"]
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3001
+CMD ["npm", "start"]
